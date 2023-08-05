@@ -50,7 +50,9 @@ jobs:
           path: target/aarch64-unknown-linux-gnu/release/boa
 
   # This workflow contains a single job called "build"
-  build:
+  deploy-in-server:
+    needs: "release"
+
     # The type of runner that the job will run on
     runs-on: ubuntu-latest
 
