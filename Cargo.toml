@@ -21,3 +21,12 @@ log = "0.4.19"
 env_logger = "0.10.0"
 rand = "0.8.5"
 par-map = "0.1.4"
+
+[build-dependencies]
+semantic-release = "15.14"
+
+[profile.dev]
+panic = "abort"
+
+[profile.release]
+panic = "abort"
