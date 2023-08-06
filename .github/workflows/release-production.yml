@@ -70,7 +70,7 @@ jobs:
             source .profile
             source .bashrc
             cd ~/battlesnake/
-            curl -LO "https://github.com/${{ github.repository }}/releases/${{ steps.version.outputs.new_tag }}/download/boa"
+            curl -LO "https://github.com/${{ github.repository }}/releases/download/${{ steps.version.outputs.new_tag }}/boa"
             chmod +x boa
             sudo systemctl restart boa
             exit
