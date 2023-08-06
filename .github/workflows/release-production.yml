@@ -57,15 +57,6 @@ jobs:
           asset_name: boa
           asset_content_type: application/octet-stream
 
-  # This workflow contains a single job called "build"
-  deploy-in-server:
-    needs: "release"
-
-    # The type of runner that the job will run on
-    runs-on: ubuntu-latest
-
-    # Steps represent a sequence of tasks that will be executed as part of the job
-    steps:
       - name: Deploy using ssh
         uses: appleboy/ssh-action@v1.0.0
         with:
@@ -79,7 +70,7 @@ jobs:
             source .profile
             source .bashrc
             cd ~/battlesnake/
-            curl -LO "https://github.com/${{ github.repository }}/releases/latest/download/boa"
+            curl -LO "https://github.com/${{ github.repository }}/releases/download/${{ steps.version.outputs.new_tag }}/boa"
             chmod +x boa
             sudo systemctl restart boa
             exit

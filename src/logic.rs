@@ -55,7 +55,7 @@ pub fn get_move(game: &Game, turn: &u32, board: &Board, you: &Battlesnake) -> Va
             // debug!("ROOT move: {:?}", mv);
             (
                 mv,
-                maximise(&board, &moved_snake, &start_time, timeout - 40),
+                maximise(&board, &moved_snake, &start_time, timeout - 80),
             )
         })
         .collect();
