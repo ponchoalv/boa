@@ -70,7 +70,7 @@ jobs:
             source .profile
             source .bashrc
             cd ~/battlesnake/
-            sudo systemctl srop boa
+            sudo systemctl stop boa
             curl -LO "https://github.com/${{ github.repository }}/releases/download/${{ steps.version.outputs.new_tag }}/boa"
             chmod +x boa
             sudo systemctl start boa
