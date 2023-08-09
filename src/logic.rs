@@ -55,7 +55,7 @@ pub fn get_move(game: &Game, turn: &u32, board: &Board, you: &Battlesnake) -> Va
             // debug!("ROOT move: {:?}", mv);
             (
                 mv,
-                maximise(&board, &moved_snake, &start_time, timeout - 100),
+                maximise(&board, &moved_snake, &start_time, timeout - 80),
             )
         })
         .collect();
@@ -299,10 +299,9 @@ fn score_position(board: &Board, you: &Battlesnake) -> i32 {
             } else if snake.head == you.head && you.length > snake.length && board.snakes.len() == 2
             {
                 score = i32::MAX;
+            } else if snake.body.contains(you.head) {
+                score = i32::MIN;
             }
-            // else if snake.body.contains(you.head) {
-            //     score -= killing_ratio;
-            // }
         }
     }
 
